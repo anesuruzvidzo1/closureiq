@@ -17,6 +17,10 @@ from reportlab.platypus import (SimpleDocTemplate, Paragraph, Spacer, Table,
 
 from lib import load_inactive, COST_BANDS, COST_FLOOR, ABANDON_COST, RECLAIM_COST, DISCLAIMER
 from analyze_operator import priority_score, closure_class, AS_OF, SOURCE
+from optimize_closure import optimize, greedy_plan, summarize, VARIABLE_COST, MOBILIZATION
+
+# Illustrative annual closure budget for the optimized-plan section (labelled estimate).
+OPT_BUDGET = 20_000_000
 
 # palette
 INK    = HexColor("#1b2432")
@@ -198,6 +202,42 @@ def build(name_substr):
         ("TOPPADDING",(0,0),(-1,-1),4),("BOTTOMPADDING",(0,0),(-1,-1),4),
     ]))
     E += [geo_tbl]
+
+    # optimized closure plan (the batching payoff, computed by the OR-Tools optimizer)
+    wells = d["op"].rename(columns={"score": "value", "AER Field Centre": "area"})[["value", "area"]].copy()
+    wells["cost"] = VARIABLE_COST
+    opt_plan, _, _ = optimize(wells, OPT_BUDGET)
+    naive_plan = greedy_plan(wells, OPT_BUDGET)
+    ov, os_, oa = summarize(opt_plan)
+    gv, gs, ga = summarize(naive_plan)
+
+    E += [Paragraph("Optimized closure plan", H2),
+          Paragraph(f"For an illustrative {millions(OPT_BUDGET)} annual closure budget, at "
+                    f"{m(VARIABLE_COST)} per well plus a {m(MOBILIZATION)} mobilization per field "
+                    "area (labelled estimates), ClosureIQ selects the wells that retire the most risk "
+                    "per dollar. Batching closures into fewer areas stretches the same budget further "
+                    "than working straight down the priority list.", BODY)]
+    ot = [["Approach", "Wells closed", "Areas", "Risk retired", "Budget used"],
+          ["Straight down the list", f"{len(naive_plan):,}", f"{ga}", f"{gv:,}", m(gs)],
+          ["ClosureIQ optimizer (batched)", f"{len(opt_plan):,}", f"{oa}", f"{ov:,}", m(os_)]]
+    ot_tbl = Table(ot, colWidths=[2.5*inch, 1.2*inch, 0.7*inch, 1.2*inch, 1.4*inch])
+    ot_tbl.setStyle(TableStyle([
+        ("FONT", (0,0), (-1,0), "Helvetica-Bold", 8.5),
+        ("FONT", (0,1), (-1,-1), "Helvetica", 8.5),
+        ("TEXTCOLOR", (0,0), (-1,0), colors.white),
+        ("BACKGROUND", (0,0), (-1,0), INK),
+        ("BACKGROUND", (0,2), (-1,2), HexColor("#faf3ec")),
+        ("ALIGN", (1,0), (-1,-1), "RIGHT"),
+        ("LINEBELOW", (0,0), (-1,-1), 0.4, LINE),
+        ("TOPPADDING", (0,0), (-1,-1), 5), ("BOTTOMPADDING", (0,0), (-1,-1), 5),
+        ("LEFTPADDING", (0,0), (-1,-1), 7),
+    ]))
+    E += [Spacer(1,4), ot_tbl]
+    if gv > 0 and ov > gv:
+        E += [Spacer(1,3),
+              Paragraph(f"Same budget: {ov-gv:,} more risk-points retired and "
+                        f"{len(opt_plan)-len(naive_plan):,} more wells closed by batching into "
+                        f"{oa} area{'s' if oa != 1 else ''} instead of {ga}.", MUTEDP)]
 
     # first prioritised list
     E += [Paragraph("First prioritised closure list", H2),
