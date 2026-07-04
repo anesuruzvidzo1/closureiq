@@ -1,5 +1,7 @@
 # ClosureIQ
 
+**Live demo: [closureiq.vercel.app](https://closureiq.vercel.app)**
+
 ClosureIQ analyzes Alberta oil and gas closure liability from public AER data. It ranks
 operators by their inactive well count, estimates each operator's closure exposure, scores and
 prioritises wells, runs an optimizer that picks the closure plan retiring the most risk on a
