@@ -537,42 +537,42 @@
     {
       "name": "Operator C",
       "slug": "operator-c",
-      "n_wells": 2732,
-      "noncompliant_pct": 0.459,
-      "near_certain": 416,
-      "watch": 1062,
-      "reactivatable": 1254,
-      "overdue": 856,
-      "not_reported": 896,
+      "n_wells": 915,
+      "noncompliant_pct": 0.132,
+      "near_certain": 60,
+      "watch": 721,
+      "reactivatable": 134,
+      "overdue": 291,
+      "not_reported": 81,
       "liability": {
-        "low": 119934800,
-        "base": 359804400,
-        "high": 599674000
+        "low": 40168500,
+        "base": 120505500,
+        "high": 200842500
       },
       "geography": [
         {
-          "area": "High Level",
-          "count": 1137
-        },
-        {
           "area": "St. Albert",
-          "count": 656
-        },
-        {
-          "area": "Grande Prairie",
-          "count": 554
-        },
-        {
-          "area": "Wainwright",
-          "count": 227
+          "count": 683
         },
         {
           "area": "Drayton Valley",
-          "count": 84
+          "count": 128
         },
         {
           "area": "Red Deer",
-          "count": 41
+          "count": 47
+        },
+        {
+          "area": "Bonnyville",
+          "count": 39
+        },
+        {
+          "area": "Grande Prairie",
+          "count": 17
+        },
+        {
+          "area": "High Level",
+          "count": 1
         }
       ],
       "scenarios": [
@@ -581,109 +581,109 @@
           "optimizer": {
             "wells": 41,
             "areas": 1,
-            "risk": 328,
+            "risk": 310,
             "spend": 4910000
           },
           "naive": {
-            "wells": 30,
-            "areas": 4,
-            "risk": 240,
-            "spend": 4900000
+            "wells": 27,
+            "areas": 5,
+            "risk": 216,
+            "spend": 4970000
           }
         },
         {
           "budget": 10000000,
           "optimizer": {
-            "wells": 87,
-            "areas": 1,
-            "risk": 696,
-            "spend": 9970000
+            "wells": 80,
+            "areas": 3,
+            "risk": 573,
+            "spend": 10000000
           },
           "naive": {
-            "wells": 65,
-            "areas": 7,
-            "risk": 520,
-            "spend": 9950000
+            "wells": 72,
+            "areas": 5,
+            "risk": 533,
+            "spend": 9920000
           }
         },
         {
           "budget": 20000000,
           "optimizer": {
-            "wells": 178,
-            "areas": 1,
-            "risk": 1424,
-            "spend": 19980000
+            "wells": 170,
+            "areas": 3,
+            "risk": 1032,
+            "spend": 19900000
           },
           "naive": {
-            "wells": 156,
-            "areas": 7,
-            "risk": 1248,
-            "spend": 19960000
+            "wells": 160,
+            "areas": 6,
+            "risk": 999,
+            "spend": 20000000
           }
         },
         {
           "budget": 40000000,
           "optimizer": {
-            "wells": 352,
-            "areas": 3,
-            "risk": 2742,
-            "spend": 39920000
+            "wells": 349,
+            "areas": 4,
+            "risk": 1797,
+            "spend": 39990000
           },
           "naive": {
-            "wells": 334,
-            "areas": 8,
-            "risk": 2659,
-            "spend": 39940000
+            "wells": 341,
+            "areas": 6,
+            "risk": 1775,
+            "spend": 39910000
           }
         }
       ],
       "top_wells": [
         {
           "licence": "W001",
-          "area": "Grande Prairie",
+          "area": "St. Albert",
           "risk": "Medium",
           "d013": "Non Compliant",
-          "yrs_dormant": 40.5,
+          "yrs_dormant": 25.7,
           "score": 8
         },
         {
           "licence": "W002",
-          "area": "Wainwright",
+          "area": "St. Albert",
           "risk": "Medium",
           "d013": "Non Compliant",
-          "yrs_dormant": 37.3,
+          "yrs_dormant": 25.1,
           "score": 8
         },
         {
           "licence": "W003",
-          "area": "Grande Prairie",
+          "area": "St. Albert",
           "risk": "Medium",
           "d013": "Non Compliant",
-          "yrs_dormant": 34.6,
+          "yrs_dormant": 22.4,
           "score": 8
         },
         {
           "licence": "W004",
-          "area": "Grande Prairie",
+          "area": "St. Albert",
           "risk": "Medium",
           "d013": "Non Compliant",
-          "yrs_dormant": 28.3,
+          "yrs_dormant": 20.9,
           "score": 8
         },
         {
           "licence": "W005",
-          "area": "Grande Prairie",
+          "area": "St. Albert",
           "risk": "Medium",
           "d013": "Non Compliant",
-          "yrs_dormant": 27.8,
+          "yrs_dormant": 20.0,
           "score": 8
         },
         {
           "licence": "W006",
-          "area": "St. Albert",
+          "area": "Red Deer",
           "risk": "Medium",
           "d013": "Non Compliant",
-          "yrs_dormant": 27.4,
+          "yrs_dormant": 19.5,
           "score": 8
         },
         {
@@ -691,31 +691,31 @@
           "area": "Drayton Valley",
           "risk": "Medium",
           "d013": "Non Compliant",
-          "yrs_dormant": 27.2,
+          "yrs_dormant": 19.3,
           "score": 8
         },
         {
           "licence": "W008",
-          "area": "Wainwright",
+          "area": "St. Albert",
           "risk": "Medium",
           "d013": "Non Compliant",
-          "yrs_dormant": 27.1,
+          "yrs_dormant": 19.1,
           "score": 8
         },
         {
           "licence": "W009",
-          "area": "High Level",
+          "area": "St. Albert",
           "risk": "Medium",
           "d013": "Non Compliant",
-          "yrs_dormant": 24.8,
+          "yrs_dormant": 18.6,
           "score": 8
         },
         {
           "licence": "W010",
-          "area": "Wainwright",
+          "area": "Grande Prairie",
           "risk": "Medium",
           "d013": "Non Compliant",
-          "yrs_dormant": 24.7,
+          "yrs_dormant": 18.5,
           "score": 8
         },
         {
@@ -723,7 +723,7 @@
           "area": "St. Albert",
           "risk": "Medium",
           "d013": "Non Compliant",
-          "yrs_dormant": 24.4,
+          "yrs_dormant": 18.1,
           "score": 8
         },
         {
@@ -731,55 +731,55 @@
           "area": "St. Albert",
           "risk": "Medium",
           "d013": "Non Compliant",
-          "yrs_dormant": 24.2,
+          "yrs_dormant": 17.6,
           "score": 8
         },
         {
           "licence": "W013",
-          "area": "High Level",
+          "area": "St. Albert",
           "risk": "Medium",
           "d013": "Non Compliant",
-          "yrs_dormant": 24.2,
+          "yrs_dormant": 17.5,
           "score": 8
         },
         {
           "licence": "W014",
-          "area": "High Level",
+          "area": "St. Albert",
           "risk": "Medium",
           "d013": "Non Compliant",
-          "yrs_dormant": 23.6,
+          "yrs_dormant": 16.3,
           "score": 8
         },
         {
           "licence": "W015",
-          "area": "St. Albert",
+          "area": "Red Deer",
           "risk": "Medium",
           "d013": "Non Compliant",
-          "yrs_dormant": 22.8,
+          "yrs_dormant": 15.8,
           "score": 8
         },
         {
           "licence": "W016",
-          "area": "Grande Prairie",
+          "area": "St. Albert",
           "risk": "Medium",
           "d013": "Non Compliant",
-          "yrs_dormant": 22.5,
+          "yrs_dormant": 15.6,
           "score": 8
         },
         {
           "licence": "W017",
-          "area": "St. Albert",
+          "area": "Drayton Valley",
           "risk": "Medium",
           "d013": "Non Compliant",
-          "yrs_dormant": 22.3,
+          "yrs_dormant": 15.3,
           "score": 8
         },
         {
           "licence": "W018",
-          "area": "Wainwright",
+          "area": "St. Albert",
           "risk": "Medium",
           "d013": "Non Compliant",
-          "yrs_dormant": 22.3,
+          "yrs_dormant": 14.3,
           "score": 8
         },
         {
@@ -787,15 +787,15 @@
           "area": "Drayton Valley",
           "risk": "Medium",
           "d013": "Non Compliant",
-          "yrs_dormant": 22.3,
+          "yrs_dormant": 14.3,
           "score": 8
         },
         {
           "licence": "W020",
-          "area": "Wainwright",
+          "area": "Drayton Valley",
           "risk": "Medium",
           "d013": "Non Compliant",
-          "yrs_dormant": 21.8,
+          "yrs_dormant": 13.8,
           "score": 8
         }
       ]
